@@ -2,14 +2,20 @@
 document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value;
 
     // Retrieve users from localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
+     // Debugging logs
+    console.log('Users from localStorage:', users);
+    console.log('Login attempt:', { username, password });    
+
     // Find the user matching the entered credentials
     const user = users.find(u => u.username === username && u.password === password);
+
+    console.log('User found:', user);
 
     if (user) {
         // Set cookies for authentication
