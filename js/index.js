@@ -36,6 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = url;
         audioPlayer.play();
 
+        document.addEventListener('DOMContentLoaded', () => {
+    const songList = document.querySelector('.song-list');
+    const songs = [
+        { title: 'Song 1', artist: 'Artist 1' },
+        { title: 'Song 2', artist: 'Artist 2' },
+        { title: 'Song 3', artist: 'Artist 3' }
+    ];
+
+    songs.forEach(song => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${song.title}</span><span>${song.artist}</span>`;
+        songList.appendChild(li);
+    });
+});
+
+
         // Initialize the Web Audio API and visualizer
         initVisualizer(audioPlayer);
     }
